@@ -1,0 +1,545 @@
+/* Modern CSS Reset */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --light-bg: #f8f9fa;
+    --dark-bg: #2c3e50;
+    --text-color: #333;
+    --light-text: #f8f9fa;
+    --transition: all 0.3s ease;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+    --content-width: 1200px;
+    --heading-font: 'Montserrat', 'Raleway', sans-serif;
+    --body-font: 'Nunito', 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+/* Header Styles */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.7);
+    transition: filter 0.5s ease;
+}
+
+.banner h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    width: 90%;
+    max-width: 800px;
+    letter-spacing: 1px;
+    animation: fadeIn 1s ease-in-out;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 3rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -40%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* Slogan Section */
+.slogan {
+    display: flex;
+    width: 100%;
+    gap: 2px;
+    margin-bottom: 50px;
+    box-shadow: var(--shadow);
+}
+
+.slogan .item {
+    flex: 1;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 30px 20px;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    margin-top: 1px;
+}
+
+.slogan .item:nth-child(2) {
+    background-color: var(--primary-color); /* Slightly different shade */
+}
+
+.slogan .item:nth-child(3) {
+    background-color: var(--primary-color); /* Different color */
+}
+
+.slogan .item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.5px;
+}
+
+.slogan .item p {
+    font-size: 1rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+}
+
+.slogan .item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    color: white;
+}
+
+.slogan .item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0,0,0,0.1);
+    transition: height 0.3s ease;
+}
+
+.slogan .item:hover::before {
+    height: 100%;
+}
+
+/* Content Section */
+.content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.content tr {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 60px;
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.content td {
+    width: 50%;
+    padding: 0;
+}
+
+.content td div {
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.content h3 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.content p {
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    letter-spacing: 0.2px;
+}
+
+.content ul {
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+
+.content li {
+    padding: 2px 0;
+    position: relative;
+    padding-left: 25px;
+    font-size: 1rem;
+    letter-spacing: 0.2px;
+}
+
+.content li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+.content a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 30px;
+    font-weight: 600;
+    font-family: var(--heading-font);
+    transition: var(--transition);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.content a:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    text-decoration: none;
+}
+
+/* Image styling */
+.content td img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+footer table {
+    width: var(--content-width);
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+footer td {
+    padding: 0 20px;
+}
+
+footer p {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-family: var(--heading-font);
+    letter-spacing: 0.5px;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer li {
+    margin-bottom: 10px;
+    letter-spacing: 0.2px;
+}
+
+footer a {
+    color: var(--light-text);
+    transition: var(--transition);
+}
+
+footer a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .banner {
+        height: 50vh;
+    }
+    
+    .slogan {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .content tr {
+        flex-direction: column;
+    }
+    
+    .content td {
+        width: 100%;
+    }
+    
+    .content td div {
+        padding: 30px;
+    }
+    
+    footer table {
+        padding: 0 0px;
+    }
+
+    footer table tr {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    footer td {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Content-xxx Section for Art Club Page */
+.content-xxx {
+    margin: 0 0;
+    padding: 0;
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: var(--shadow);
+    background-color: white;
+    overflow: hidden;
+    border: none;
+}
+
+.content-xxx tr {
+    display: table-row;
+}
+
+.content-xxx td {
+    padding: 0;
+}
+
+.content-xxx tr:first-child td:nth-child(2) {
+    border-right: 1px solid #ddd;
+}
+
+/* First column - sidebar navigation */
+.content-xxx tr td:first-child {
+    width: 300px;
+    background-color: var(--light-bg);
+    padding: 40px 40px;
+    border-right: 1px solid #ddd;
+}
+
+.content-xxx tr:first-child td:not(:first-child) {
+    border-bottom: 2px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-top: none;
+}
+
+.content-xxx tr:first-child td:last-child {
+    border-right: none;
+}
+
+.content-xxx tr:last-child td {
+    border-bottom: none;
+}
+
+.content-xxx tr:last-child td:last-child {
+    border-right: none;
+}
+
+.content-xxx tr td:first-child ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.content-xxx tr td:first-child li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.content-xxx tr td:first-child li::before {
+    display: block;
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 20px;
+}
+
+.content-xxx tr td:first-child a {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: block;
+    padding: 5px 0;
+    transition: var(--transition);
+    font-family: var(--heading-font);
+}
+
+.content-xxx tr td:first-child a:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+    text-decoration: none;
+}
+
+/* Image columns */
+.content-xxx td img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Main content area */
+.content-xxx tr:nth-child(2) td {
+    padding: 30px;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+}
+
+.content-xxx h2 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.content-xxx h2:after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 0;
+}
+
+.content-xxx p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .content-xxx tr:first-child {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .content-xxx tr:first-child td:first-child {
+        width: 100%;
+        order: 1;
+    }
+    
+    .content-xxx tr:first-child td {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-xxx tr, 
+    .content-xxx tr:first-child {
+        display: block;
+    }
+    
+    .content-xxx td, 
+    .content-xxx tr td:first-child {
+        display: block;
+        width: 100%;
+    }
+    
+    .content-xxx tr:first-child td:first-child {
+        padding: 20px;
+    }
+    
+    .content-xxx tr:first-child td:first-child ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .content-xxx tr:first-child td:first-child li {
+        margin-right: 15px;
+    }
+}
+
+/* Add more specific border styling for main content area */
+.content-xxx tr:nth-child(2) td[colspan="2"] {
+    border-left: 1px solid #ddd;
+}
+
+/* Additional border styling for responsive design */
+@media (max-width: 992px) {
+    .content-xxx tr:first-child td:first-child {
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .content-xxx tr:first-child td {
+        border: 1px solid #ddd;
+    }
+    
+    .content-xxx tr:first-child {
+        border-bottom: 1px solid #ddd;
+    }
+}
